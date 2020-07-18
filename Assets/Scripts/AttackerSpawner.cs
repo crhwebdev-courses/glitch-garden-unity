@@ -17,8 +17,7 @@ public class AttackerSpawner : MonoBehaviour
         while (_spawn)
         {            
             waitTime = UnityEngine.Random.Range(_minSpawnDelay, _maxSpawnDelay);
-            yield return new WaitForSeconds(waitTime);
-            Debug.Log("Spawning an enemy");
+            yield return new WaitForSeconds(waitTime);            
             SpawnAttacker();
         }
     }
