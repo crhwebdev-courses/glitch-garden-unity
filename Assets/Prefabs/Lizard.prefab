@@ -165,7 +165,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67377e8150323da4791cbfc932e44fdf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _health: 100
 --- !u!114 &8833260382894059207
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -178,3 +177,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a971cc82682a4b42b6939f87e5b3e0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _health: 100
+  _deathVFX: {fileID: 1906222994913036, guid: 740c2b3187d56c341b8cb78e8aa925c5, type: 3}
