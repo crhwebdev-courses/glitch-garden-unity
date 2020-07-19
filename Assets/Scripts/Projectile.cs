@@ -12,15 +12,16 @@ public class Projectile : MonoBehaviour
         transform.Translate(Vector2.right * Time.deltaTime * _speed);        
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D target)
     {
-        var target = collision.gameObject;
+        
         var health = target.GetComponent<Health>();
         var attacker = target.GetComponent<Attacker>();
 
-        if (attacker)
+        if (attacker && health)
         {
             health.TakeDamage(_damage);
+            Destroy(gameObject);
         }
     }
 }
