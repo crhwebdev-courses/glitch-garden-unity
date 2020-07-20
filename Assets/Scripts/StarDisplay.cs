@@ -6,8 +6,17 @@ using UnityEngine.UI;
 public class StarDisplay : MonoBehaviour
 {
     [SerializeField] private int _stars = 100;
+    [SerializeField] private int _starGenerationAmount = 3;
     private Text _starText;
     
+    public int Stars
+    { 
+        get
+        {
+            return _stars;
+        }
+    }
+
     void Start()
     {
         _starText = GetComponent<Text>();
@@ -19,12 +28,20 @@ public class StarDisplay : MonoBehaviour
         _starText.text = _stars.ToString();
     }
 
+    public bool HaveEnoughStars(int amount)
+    {
+        return _stars >= amount;
+    }
+    
     public void AddStars(int amount)
     {
-        _stars += amount;
+        //Note: we have to take an amount because the animation script event
+        //is stuck with passing a value.  We will use the vaule set on StarDisplay
+        // instead
+        _stars += _starGenerationAmount;
         UpdateDisplay();
     }
-
+    
     public void SpendStars(int amount)
     {
         

@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+//using System.Numerics;
 using UnityEngine;
 
 public class DefenderSpawner : MonoBehaviour
@@ -8,12 +9,24 @@ public class DefenderSpawner : MonoBehaviour
 
     private void OnMouseDown()
     {
-        SpawnDefender(GetSquareClicked());
+        AttemptToPlaceDefenderAt(GetSquareClicked());
     }
 
     public void SetSelectedDefender(Defender defenderToSelect)
     {
         _defender = defenderToSelect;
+    }
+
+    private void AttemptToPlaceDefenderAt(Vector2 gridPos)
+    {
+        var StarDisplay = FindObjectOfType<StarDisplay>();
+        int defenderCost = _defender.StarCost;
+
+        if(StarDisplay.HaveEnoughStars(defenderCost))
+        {
+            SpawnDefender(gridPos);
+            StarDisplay.SpendStars(defenderCost);
+        }
     }
 
     private Vector2 GetSquareClicked()
