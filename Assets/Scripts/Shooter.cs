@@ -19,10 +19,12 @@ public class Shooter : MonoBehaviour
     {
         if (IsAttackerInLane())
         {
+            Debug.Log("Attacker in lane.");
             _animator.SetBool("isAttacking", true);
         }
         else
-        {   
+        {
+            Debug.Log("No attacker in lane.");
             _animator.SetBool("isAttacking", false);
         }
     }
