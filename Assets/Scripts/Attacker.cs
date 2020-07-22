@@ -6,6 +6,7 @@ public class Attacker : MonoBehaviour
 {    
     //[Range(0f, 5f)] [SerializeField] private float _walkSpeed = 1f;
     private float _currentSpeed = 1f;
+    private GameObject _currentTarget;
 
     private void Update()
     {
@@ -15,6 +16,12 @@ public class Attacker : MonoBehaviour
     public void SetMovementSpeed(float speed)
     {
         _currentSpeed = speed;
+    }
+
+    public void Attack(GameObject target)
+    {
+        GetComponent<Animator>().SetBool("isAttacking", true);
+        _currentTarget = target;
     }
 
    
