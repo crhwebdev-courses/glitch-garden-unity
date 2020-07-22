@@ -9,6 +9,7 @@ public class LevelLoader : MonoBehaviour
 
     private int _splashScreen = 0;
     private int _startScreen = 1;
+    private string _gameOverScreen = "Game Over Screen";
     private int _currentSceneIndex;
     
     private void Start()
@@ -21,14 +22,28 @@ public class LevelLoader : MonoBehaviour
         
     }
     
-    private IEnumerator LoadScreenAfterDelay(int screen, int delay)
+    public void LoadGameOverScene()
     {
-        yield return new WaitForSeconds(delay);
-        SceneManager.LoadScene(screen);
+        //Note: calling start screen for now
+        StartCoroutine(LoadScreenAfterDelay(_gameOverScreen, 2));
     }
 
     public void LoadNextScene()
     {
         SceneManager.LoadScene(_currentSceneIndex + 1);
     }
+
+    private IEnumerator LoadScreenAfterDelay(int screen, int delay)
+    {
+        yield return new WaitForSeconds(delay);
+        SceneManager.LoadScene(screen);
+    }
+
+    private IEnumerator LoadScreenAfterDelay(string screen, int delay)
+    {
+        yield return new WaitForSeconds(delay);
+        SceneManager.LoadScene(screen);
+    }
+
+
 }
