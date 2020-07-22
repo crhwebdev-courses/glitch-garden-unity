@@ -26,8 +26,8 @@ public class LivesDisplay : MonoBehaviour
         UpdateDisplay();
      
         if(_lives <= 0)
-        {
-            FindObjectOfType<LevelLoader>().LoadGameOverScene();
+        {            
+            FindObjectOfType<LevelController>().HandleLoseCondition();
         }
     }
 }

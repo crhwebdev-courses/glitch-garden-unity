@@ -33,6 +33,16 @@ public class LevelLoader : MonoBehaviour
         SceneManager.LoadScene(_currentSceneIndex + 1);
     }
 
+    public void RestartScene()
+    {
+        SceneManager.LoadScene(_currentSceneIndex);
+    }
+
+    public void LoadMainMenu()
+    {
+        SceneManager.LoadScene(_startScreen);
+    }
+
     private IEnumerator LoadScreenAfterDelay(int screen, int delay)
     {
         yield return new WaitForSeconds(delay);
