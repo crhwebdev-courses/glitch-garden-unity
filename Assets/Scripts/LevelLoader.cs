@@ -43,6 +43,11 @@ public class LevelLoader : MonoBehaviour
         SceneManager.LoadScene(_startScreen);
     }
 
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
+
     private IEnumerator LoadScreenAfterDelay(int screen, int delay)
     {
         yield return new WaitForSeconds(delay);
