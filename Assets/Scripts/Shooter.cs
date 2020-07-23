@@ -73,7 +73,8 @@ public class Shooter : MonoBehaviour
     public void Fire()
     {
 
-        var newProjectile = Instantiate(projectile, gun.transform.position, transform.rotation);
+        var newProjectile = 
+            Instantiate(projectile, gun.transform.position, transform.rotation) as GameObject;
         newProjectile.transform.parent = _projectileParent.transform;
     }
 }
