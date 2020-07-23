@@ -1,6 +1,8 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class DefenderButton : MonoBehaviour
 {
@@ -12,6 +14,24 @@ public class DefenderButton : MonoBehaviour
     private void Awake()
     {
         _spriteRenderer = GetComponent<SpriteRenderer>();        
+    }
+
+    private void Start()
+    {
+        LabelButtonWithCost();
+    }
+
+    private void LabelButtonWithCost()
+    {
+        Text costText = GetComponentInChildren<Text>();
+        if (!costText)
+        {
+            Debug.LogError(name + " has no cost text; add some!");
+        }
+        else
+        {
+            costText.text = _defenderPrefab.StarCost.ToString();
+        }
     }
 
     private void OnMouseDown()
