@@ -882,8 +882,8 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1247737514}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 1
-  m_WholeNumbers: 0
+  m_MaxValue: 2
+  m_WholeNumbers: 1
   m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -2007,6 +2007,11 @@ PrefabInstance:
       propertyPath: _volumeSlider
       value: 
       objectReference: {fileID: 617904048}
+    - target: {fileID: 5505212624046943755, guid: c4b616d269f80dc448291d8047c598b9,
+        type: 3}
+      propertyPath: _difficultySlider
+      value: 
+      objectReference: {fileID: 1019593728}
     - target: {fileID: 5505212624046943756, guid: c4b616d269f80dc448291d8047c598b9,
         type: 3}
       propertyPath: m_Name
