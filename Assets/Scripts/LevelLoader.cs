@@ -9,9 +9,11 @@ public class LevelLoader : MonoBehaviour
 
     private int _splashScreen = 0;
     private int _startScreen = 1;
+    private string _levelOne = "Level 1";
     private string _gameOverScreen = "Game Over Screen";
     private int _currentSceneIndex;
-    
+    private string _optionsScreen = "Options Screen";
+
     private void Start()
     {
         _currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
@@ -22,15 +24,28 @@ public class LevelLoader : MonoBehaviour
         
     }
     
+    public void LoadNextScene()
+    {
+        SceneManager.LoadScene(_currentSceneIndex + 1);
+    }
+
+    public void LoadPreviousScene()
+    {
+        if(_currentSceneIndex > 0)
+        {
+            SceneManager.LoadScene(_currentSceneIndex - 1);
+        }        
+    }
+
+    public void LoadFirstLevel()
+    {
+        SceneManager.LoadScene(_levelOne); 
+    }
+
     public void LoadGameOverScene()
     {
         //Note: calling start screen for now
         StartCoroutine(LoadScreenAfterDelay(_gameOverScreen, 2));
-    }
-
-    public void LoadNextScene()
-    {
-        SceneManager.LoadScene(_currentSceneIndex + 1);
     }
 
     public void RestartScene()
@@ -41,6 +56,11 @@ public class LevelLoader : MonoBehaviour
     public void LoadMainMenu()
     {
         SceneManager.LoadScene(_startScreen);
+    }
+
+    public void LoadOptionsMenu()
+    {
+        SceneManager.LoadScene(_optionsScreen);
     }
 
     public void QuitGame()
