@@ -27,8 +27,7 @@ public class Attacker : MonoBehaviour
         if(LevelController != null)
         {
             LevelController.AttackerKilled();
-        }
-        
+        }        
     }
 
     private void UpdateAnimationState()
